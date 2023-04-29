@@ -30,6 +30,7 @@ alias(
 
 cc_library(
     name = "ops_lib",
+    compatible_with = ["//buildenv/target:non_prod"],
     visibility = ["//visibility:public"],
     deps = [
         ":boise_offset_converter_cc",
@@ -190,6 +191,7 @@ py_tf_text_library(
     cc_op_kernels = [
         "//tensorflow_text/core/kernels:boise_offset_converter_kernel",
     ],
+    compatible_with = ["//buildenv/target:non_prod"],
     deps = [
         # python:framework_ops tensorflow dep,
         # python/ops/ragged:ragged_conversion_ops tensorflow dep,
@@ -219,6 +221,7 @@ py_tf_text_library(
     cc_op_kernels = [
         "//tensorflow_text/core/kernels:byte_splitter_kernel",
     ],
+    compatible_with = ["//buildenv/target:non_prod"],
     deps = [
         # python:framework_ops tensorflow dep,
         # python/ops/ragged tensorflow dep,
@@ -245,6 +248,7 @@ py_tf_text_library(
     cc_op_kernels = [
         "//tensorflow_text/core/kernels:constrained_sequence_kernel",
     ],
+    compatible_with = ["//buildenv/target:non_prod"],
     deps = [
         # python:dtypes tensorflow dep,
         # python:framework_ops tensorflow dep,
@@ -290,6 +294,7 @@ py_tf_text_library(
     cc_op_kernels = [
         "//tensorflow_text/core/kernels:fast_bert_normalizer_tf_kernel",
     ],
+    compatible_with = ["//buildenv/target:non_prod"],
     deps = [
         # python:array_ops_stack tensorflow dep,
         # python:dtypes tensorflow dep,
@@ -370,6 +375,7 @@ py_tf_text_library(
         "//tensorflow_text/core/kernels/sentencepiece:sentencepiece_tokenizer_kernel",
         "//tensorflow_text/core/kernels/sentencepiece:sentencepiece_detokenizer_kernel",
     ],
+    compatible_with = ["//buildenv/target:non_prod"],
     deps = [
         # tensorflow package dep,
         "//tensorflow_text/core/pybinds:pywrap_model_converter",
@@ -404,6 +410,7 @@ py_tf_text_library(
     cc_op_kernels = [
         "//tensorflow_text/core/kernels:fast_wordpiece_tokenizer_kernel",
     ],
+    compatible_with = ["//buildenv/target:non_prod"],
     deps = [
         ":tokenization",
         # python:array_ops_stack tensorflow dep,
@@ -445,6 +452,7 @@ py_tf_text_library(
     cc_op_kernels = [
         "//tensorflow_text/core/kernels:phrase_tokenizer_kernel",
     ],
+    compatible_with = ["//buildenv/target:non_prod"],
     deps = [
         ":tokenization",
         # python:array_ops_stack tensorflow dep,
@@ -485,6 +493,7 @@ py_tf_text_library(
     cc_op_kernels = [
         ":constrained_sequence_op",
     ],
+    compatible_with = ["//buildenv/target:non_prod"],
     deps = [
         # python:array_ops tensorflow dep,
         # python:dtypes tensorflow dep,
@@ -656,6 +665,7 @@ py_tf_text_library(
     cc_op_kernels = [
         "//tensorflow_text/core/kernels:mst_op_kernels",
     ],
+    compatible_with = ["//buildenv/target:non_prod"],
     deps = [
         # python:array_ops tensorflow dep,
         # python:dtypes tensorflow dep,
@@ -689,6 +699,7 @@ py_tf_text_library(
     cc_op_kernels = [
         "//tensorflow_text/core/kernels:ngrams_kernel",
     ],
+    compatible_with = ["//buildenv/target:non_prod"],
     deps = [
         ":sliding_window_op",
         # python:errors tensorflow dep,
@@ -724,6 +735,7 @@ py_tf_text_library(
     cc_op_kernels = [
         "//tensorflow_text/core/kernels:normalize_kernels",
     ],
+    compatible_with = ["//buildenv/target:non_prod"],
     deps = [
         # python:dtypes tensorflow dep,
         # python/ops/ragged:ragged_conversion_ops tensorflow dep,
@@ -898,6 +910,7 @@ py_tf_text_library(
     srcs = ["python/ops/regex_split_ops.py"],
     cc_op_defs = ["//tensorflow_text/core/ops:regex_split_ops.cc"],
     cc_op_kernels = ["//tensorflow_text/core/kernels:regex_split_kernels"],
+    compatible_with = ["//buildenv/target:non_prod"],
     deps = [
         ":splitter",
         # python/ops/ragged:ragged_tensor tensorflow dep,
@@ -952,6 +965,7 @@ py_tf_text_library(
     cc_op_kernels = [
         "//tensorflow_text/core/kernels:sentence_breaking_kernels",
     ],
+    compatible_with = ["//buildenv/target:non_prod"],
     deps = [
         ":regex_split_ops",
         # tf:lib tensorflow dep,
@@ -992,6 +1006,7 @@ py_tf_text_library(
     cc_op_kernels = [
         "//tensorflow_text/core/kernels:sentencepiece_kernels",
     ],
+    compatible_with = ["//buildenv/target:non_prod"],
     deps = [
         ":tokenization",
         # python:array_ops tensorflow dep,
@@ -1062,6 +1077,7 @@ py_tf_text_library(
     cc_op_kernels = [
         "//tensorflow_text/core/kernels:tokenizer_from_logits_kernel",
     ],
+    compatible_with = ["//buildenv/target:non_prod"],
     deps = [
         ":tokenization",
         # python:dtypes tensorflow dep,
@@ -1092,6 +1108,7 @@ py_tf_text_library(
     cc_op_kernels = [
         "//tensorflow_text/core/kernels:split_merge_tokenize_kernel",
     ],
+    compatible_with = ["//buildenv/target:non_prod"],
     deps = [
         ":tokenization",
         # python:dtypes tensorflow dep,
@@ -1131,6 +1148,7 @@ py_tf_text_library(
     cc_op_kernels = [
         "//tensorflow_text/core/kernels:sentence_fragmenter_v2_kernel",
     ],
+    compatible_with = ["//buildenv/target:non_prod"],
     deps = [
         ":byte_splitter",
         ":sentence_breaking_ops",
@@ -1193,6 +1211,7 @@ py_tf_text_library(
     srcs = ["python/metrics/text_similarity_metric_ops.py"],
     cc_op_defs = ["//tensorflow_text/core/ops:rouge_l_op.cc"],
     cc_op_kernels = ["//tensorflow_text/core/kernels:rouge_l_kernel"],
+    compatible_with = ["//buildenv/target:non_prod"],
     deps = [
         # python:array_ops tensorflow dep,
         # python:dtypes tensorflow dep,
@@ -1261,6 +1280,7 @@ py_tf_text_library(
     srcs = ["python/ops/trimmer_ops.py"],
     cc_op_defs = ["//tensorflow_text/core/ops:trimmer_ops.cc"],
     cc_op_kernels = ["//tensorflow_text/core/kernels:round_robin_trimmer_kernel"],
+    compatible_with = ["//buildenv/target:non_prod"],
     deps = [
         ":item_selector_ops",
         # python:array_ops tensorflow dep,
@@ -1335,6 +1355,7 @@ py_tf_text_library(
     cc_op_kernels = [
         "//tensorflow_text/core/kernels:unicode_script_tokenize_kernel",
     ],
+    compatible_with = ["//buildenv/target:non_prod"],
     deps = [
         ":tokenization",
         # python:array_ops tensorflow dep,
@@ -1371,6 +1392,7 @@ py_tf_text_library(
     cc_op_kernels = [
         "//tensorflow_text/core/kernels:utf8_binarize_kernel",
     ],
+    compatible_with = ["//buildenv/target:non_prod"],
     visibility = [
         "//third_party/py/tensorflow_retvec:__subpackages__",
     ],
@@ -1401,6 +1423,7 @@ py_tf_text_library(
     cc_op_kernels = [
         ":constrained_sequence_op",
     ],
+    compatible_with = ["//buildenv/target:non_prod"],
     deps = [
         # python:array_ops tensorflow dep,
         # python:dtypes tensorflow dep,
@@ -1453,6 +1476,7 @@ py_tf_text_library(
     cc_op_kernels = [
         "//tensorflow_text/core/kernels:whitespace_tokenize_kernel",
     ],
+    compatible_with = ["//buildenv/target:non_prod"],
     deps = [
         ":tokenization",
         # python:array_ops tensorflow dep,
@@ -1473,6 +1497,7 @@ py_tf_text_library(
     cc_op_kernels = [
         "//tensorflow_text/core/kernels:whitespace_tokenizer_kernel",
     ],
+    compatible_with = ["//buildenv/target:non_prod"],
     deps = [
         ":tokenization",
         ":whitespace_tokenizer",
@@ -1512,6 +1537,7 @@ py_tf_text_library(
     cc_op_kernels = [
         "//tensorflow_text/core/kernels:wordpiece_kernel",
     ],
+    compatible_with = ["//buildenv/target:non_prod"],
     deps = [
         ":tokenization",
         # python:array_ops tensorflow dep,
